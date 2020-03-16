@@ -1,5 +1,6 @@
-#include "holberton.h"
 #include <stdarg.h>
+#include <stdio.h>
+#include "holberton.h"
 
 /**
  * _printf - Function printf().
@@ -7,15 +8,15 @@
  * Return: Always 0.
  */
 
-int _printf(const char *format, const unsigned int numArgs, ...)
+int _printf(const char *format, ...)
 {
     va_list args;
 
     int i;
   
-    va_start(args, numArgs);
+    va_start(args, format);
     
-    for (i = 0; format[i] != "\0"; i++)
+    for (i = 0; format[i] != '\0'; i++)
     {
       if (format[i] != '%')
       {  
@@ -34,7 +35,7 @@ int _printf(const char *format, const unsigned int numArgs, ...)
         {
           char *parametro = va_arg(args, char*);
           _printf(parametro, 0);
-          i++;
+                    i++;
         }
       }
     }

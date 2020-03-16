@@ -1,13 +1,18 @@
+#include <limits.h>
+#include <stdio.h>
 #include "holberton.h"
 
 /**
- * main - Function printf().
- * @format: Pointer
- * Return: Always 0.
+ * main - Entry point
+ *
+ * Return: Always 0
  */
-
 int main(void)
 {
-  char pal[] = "%c %s Mundo";
-  _printf(pal, "f", "Hola");
+  _printf("Character:[%c]\n", 'H');
+  printf("Character:[%c]\n", 'H');
+  _printf("String:[%s]\n", "I am a string !");
+  printf("String:[%s]\n", "I am a string !");
+  _printf("%s", "Holis");
+  return (0);
 }
