@@ -31,8 +31,8 @@ int printf_str(va_list args)
 
 int printf_char(va_list args)
 {
-	char *caracter = va_arg(args, char*);
+	char caracter = va_arg(args, char*);
 
-	_putchar(caracter[0]);
+	_putchar(caracter);
 	return (1);
 }
