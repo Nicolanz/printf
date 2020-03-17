@@ -10,34 +10,22 @@
 
 int _printf(const char *format, ...)
 {
-    va_list args;
+  va_list args;
+  int i;
+  char *s;
 
-    int i;
-  
-    va_start(args, format);
-    
-    for (i = 0; format[i] != '\0'; i++)
+  va_start(args, format);
+
+  for (i = 0; format[i] != '\0'; i++)
+  {
+    if (format[i] != '%')
     {
-      if (format[i] != '%')
-      {  
-        _putchar(format[i]);
-      }
-      else
-      {
-        char siguienteLetra = format[i + 1];
-        if (siguienteLetra == 'c')
-        {
-          char *parametro = va_arg(args, char*);
-          _putchar(parametro[0]);
-          i++;
-        }
-        else if (siguienteLetra == 's')
-        {
-          char *parametro = va_arg(args, char*);
-          _printf(parametro, 0);
-                    i++;
-        }
-      }
+      _putchar(format[i]);
     }
-  return (i);
+    if (format[i] == 's')
+    {
+      s += printf_str(args);
+    }
+  }
+  return(i);
 }

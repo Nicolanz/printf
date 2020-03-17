@@ -1,7 +1,10 @@
 #ifndef HOLBERTON
 #define HOLBERTON
 
+#include <stdarg.h>
+
 int _putchar(char c);
 int _printf(const char *format, ...);
+int printf_str(va_list args);
 
 #endif
