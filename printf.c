@@ -19,6 +19,7 @@ void printnumber(int n)
 	}
 	_putchar(n % 10 + '0');
 }
+
 /**
  * _printf - Function printf().
  * @format: Pointer
@@ -27,6 +28,7 @@ void printnumber(int n)
 
 int _printf(const char *format, ...)
 {
+
 	va_list args;
 	int i;
 
@@ -66,3 +68,6 @@ int _printf(const char *format, ...)
 	}
 	return (i);
 }
+  return (i);
+}
+

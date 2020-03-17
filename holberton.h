@@ -1,6 +1,8 @@
-#ifndef _SAMPLE_HEADER_H_
-#define _SAMPLE_HEADER_H_
+#ifndef HOLBERTON
+#define HOLBERTON
 
 int _putchar(char c);
 int _printf(const char *format, ...);
-#endif /*_SAMPLE_HEADER_H_*/
+
+#endif
+
