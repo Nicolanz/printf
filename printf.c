@@ -1,36 +1,4 @@
 #include "holberton.h"
-/**
- * printnumber - prints ints
- * @n: Number
- *
- */
-void printnumber(int n)
-{
-	if (n < 0)
-	{
-		_putchar('-');
-		n = n * (-1);
-	}
-	if (n / 10)
-	{
-		printnumber(n / 10);
-	}
-	_putchar(n % 10 + '0');
-}
-/**
- *
- *
- *
- *
- */
-void printUn(unsigned int n)
-{
-	if (n / 10)
-	{
-		printnumber(n / 10);
-	}
-	_putchar(n % 10 + '0');
-}
 
 /**
  * _printf - Function printf().
@@ -41,7 +9,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i;
-	int s;
+	int s = 0;
 
 	va_start(args, format);
 
@@ -64,9 +32,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			_putchar(format[i]);
+			s++;
 		}
 	}
 
 	va_end(args);
-	return (i);
+	return (s);
 }
