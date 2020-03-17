@@ -29,4 +29,3 @@ void printUn(unsigned int n)
 	}
 	_putchar(n % 10 + '0');
 }
-

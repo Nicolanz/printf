@@ -1,6 +1,5 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "holberton.h"
+#include <stdarg.h>
 /**
  * _printf - Function printf().
  * @format: Pointer
@@ -12,6 +11,7 @@ int _printf(const char *format, ...)
 	int i;
 
 	va_start(args, format);
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
