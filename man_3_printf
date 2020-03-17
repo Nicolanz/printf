@@ -1,0 +1,17 @@
+.TH man 1 "16 Marzo 2020" 0.00 "printf man page"
+.SH NAME 
+.B printf
+- project printf .
+.SH SYNOPSIS
+printf [FORMAT]
+.SH DESCRIPTION
+Printf is a project where we can duplicate the function printf with all its formats.
+.SH OPTIONS
+.B printf 
+does not take any options.
+.SH SEE ALSO
+.I printf(1)
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Lizeth Victoria, Nicolar Zarate
