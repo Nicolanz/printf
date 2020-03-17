@@ -1,47 +1,31 @@
 #include "holberton.h"
-#include <stdlib.h>
-
+#include <stdarg.h>
 /**
- * printf_str - Function printf string.
- * @args: arguments
- * Return: Always 0.
+ * printnumber - Prints positive or negative ints
+ * @n: Number
  */
-int printf_str(va_list args)
+void printnumber(int n)
 {
-	char *str;
-	int i;
-
-	str = va_arg(args, char*);
-	if (str == NULL)
+	if (n < 0)
 	{
-		_printf("(null)");
-		va_end(args);
-		return (0);
+		_putchar('-');
+		n = n * (-1);
 	}
-	else if (str == 0)
+	if (n / 10)
 	{
-		return (-1);
+		printnumber(n / 10);
 	}
-	else
-	{
-		for (i = 0; str[i] != '\0'; i++)
-		{
-			_putchar(str[i]);
-		}
-	}
-	va_end(args);
-	return (i);
+	_putchar(n % 10 + '0');
 }
-
 /**
- * printf_char - Function printf char.
- * @args: arguments
- * Return: Always 0.
+ * printUn - Prints unsined ints
+ * @n: Number
  */
-int printf_char(va_list args)
+void printUn(unsigned int n)
 {
-	char caracter = va_arg(args, char*);
-
-	_putchar(caracter);
-	return (1);
+	if (n / 10)
+	{
+		printUn(n / 10);
+	}
+	_putchar(n % 10 + '0');
 }

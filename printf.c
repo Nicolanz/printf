@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdarg.h>
 /**
  * _printf - Function printf().
  * @format: Pointer
@@ -9,33 +9,34 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i;
-	int s = 0;
 
 	va_start(args, format);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		char nextLetter = format[i + 1];
-		char letter = format[i];
-
-		if (letter == '%' && nextLetter == 's')
+		if (format[i] != '%')
 		{
-			s += printf_str(args);
-			i++;
-		}
-
-		else if (letter == '%' && nextLetter == 'c')
-		{
-			s += printf_char(args);
-			i++;
+			_putchar(format[i]);
 		}
 		else
 		{
-			_putchar(format[i]);
-			s++;
+			char siguienteLetra = format[i + 1];
+
+			if (siguienteLetra == 'i' || siguienteLetra == 'd')
+			{
+				int num = va_arg(args, int);
+
+				printnumber(num);
+				i++;
+			}
+			else if (siguienteLetra == 'u')
+			{
+				int num = va_arg(args, int);
+
+				printUn(num);
+				i++;
+			}
 		}
 	}
-
-	va_end(args);
-	return (s);
+	return (i);
 }
