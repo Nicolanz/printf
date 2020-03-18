@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i, num, printed = 0;
+	int i, printed = 0;
 	char siguienteLetra;
 
 	if (format == NULL)
