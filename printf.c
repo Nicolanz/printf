@@ -1,42 +1,59 @@
-#include <stdarg.h>
-#include <stdio.h>
 #include "holberton.h"
 /**
  * _printf - Function printf().
- * @format: Pointer
- * Return: Always 0.
+ * @format: String to print
+ * Return: Printed.
  */
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i;
+	int i, num, printed = 0;
+	char siguienteLetra;
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
 			_putchar(format[i]);
+			printed++;
 		}
 		else
 		{
-			char siguienteLetra = format[i + 1];
-
+			siguienteLetra = format[i + 1];
 			if (siguienteLetra == 'i' || siguienteLetra == 'd')
 			{
-				int num = va_arg(args, int);
-
-				printnumber(num);
+				printnumber(&printed, va_arg(args, int));
 				i++;
 			}
-			else if (siguienteLetra == 'u')
+			else if (siguienteLetra == 'c')
 			{
-				int num = va_arg(args, int);
-
-				printUn(num);
+				_putchar(va_arg(args, int));
+				printed++;
+				i++;
+			}
+			else if (siguienteLetra == 's')
+			{
+				printstring(&printed, args);
+				i++;
+			}
+			else if (siguienteLetra == '\0')
+				return (-1);
+			else
+			{
+				if (siguienteLetra != '%')
+				{
+					_putchar('%');
+					printed++;
+				}
+				_putchar(siguienteLetra);
+				printed++;
 				i++;
 			}
 		}
 	}
-	return (i);
+	va_end(args);
+	return (printed);
 }
